@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import configureStore from './redux/store';
+
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+const { Provider } = require('react-redux');
+
 ReactDOM.hydrate(
   <React.StrictMode>
-    <App />
+    <Provider store={configureStore()}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
