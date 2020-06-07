@@ -23,7 +23,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: akhileshns/heroku-deploy@v3.0.4 # This is the action
+    - uses: actions/checkout@v2
       with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "sapienttest" #Must be unique in Heroku
@@ -33,7 +33,6 @@ jobs:
           usedocker: false #OPTIONAL and DEFAULT - false
           appdir: "" #OPTIONAL and DEFAULT - "". This is useful if the api you're deploying is in a subfolder
           docker_heroku_process_type: "" #OPTIONAL and DEFAULT - "web"
-    - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
