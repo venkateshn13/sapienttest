@@ -32,5 +32,7 @@ jobs:
     # Runs a single command using the runners shell
     - name: Install Packages
       run: npm install
+    - name: Run Unit Test Cases
+      run: npm run test
     - name: Build page
       run: npm run build
