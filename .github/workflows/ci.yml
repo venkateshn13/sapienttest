@@ -24,15 +24,18 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-      with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "sapienttest" #Must be unique in Heroku
-          heroku_email: "venkatesh.net5@gmail.com"
-          branch: "master" #OPTIONAL and DEFAULT - 'HEAD' (a.k.a your current branch)
-          dontuseforce: false #OPTIONAL and DEFAULT - false
-          usedocker: false #OPTIONAL and DEFAULT - false
-          appdir: "" #OPTIONAL and DEFAULT - "". This is useful if the api you're deploying is in a subfolder
-          docker_heroku_process_type: "" #OPTIONAL and DEFAULT - "web"
+    - name: Login to Heroku Container registry
+      env: 
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      run: heroku container:login 
+    - name: Build and push
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      run: heroku container:push -a ${{ secrets.HEROKU_APP_NAME }} web 
+    - name: Release
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      run: heroku container:release -a ${{ secrets.HEROKU_APP_NAME }} web
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
