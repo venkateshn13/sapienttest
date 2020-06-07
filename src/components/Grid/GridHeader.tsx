@@ -1,9 +1,16 @@
 import React from 'react';
 
+/**
+ * Interface for grid header props.
+ */
 interface IGridHeaderProps {
     headers: string[];
 }
 
+/**
+ * Grid Header component.
+ * @param props 
+ */
 export default function GridHeader(props: IGridHeaderProps) {
     const { headers } = props;
 

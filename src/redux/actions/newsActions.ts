@@ -1,11 +1,18 @@
 import axios from "axios";
 
-export const newsActions = () => (dispatch: any) => {
+export const hideNewsAction = (id: string) => (dispatch: any) => {
   dispatch({
-    type: "SIMPLE_ACTION",
-    payload: "result_of_simple_action",
+    id,
+    type: "HIDE_NEWS",
   });
 };
+
+export const upVoteAction = (id: string) => (dispatch: any) => {
+    dispatch({
+      id,
+      type: "UP_VOTE",
+    });
+  };
 
 export const getNews = () => {
   console.log("GetUsers");

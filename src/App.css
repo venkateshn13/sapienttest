@@ -119,6 +119,7 @@ and (max-width : 1450px) {
   img[src='s.gif'][width='840'] { width: 252px; }
   .title { font-size: 11pt; line-height: 14pt;  }
   .subtext { font-size: 9pt; }
+  .hide{cursor: pointer;}
   .sitestr{font-size: 9pt;}
   .itemlist { padding-right: 5px; }
   .athing {height: 40px;}
