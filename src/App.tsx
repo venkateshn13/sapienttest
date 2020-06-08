@@ -17,7 +17,7 @@ export function App(props: any) {
 
   useEffect(() => {
     getNews(0);
-  }, []);
+  }, [getNews]);
 
   useEffect(() => {
     setFeed(news);
