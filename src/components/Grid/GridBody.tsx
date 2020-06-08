@@ -63,7 +63,7 @@ function GridBody(props: IGridBodyProps) {
               <b>{feed.title}</b>{" "}
               <span className="title sitebit comhead">
                 {feed.url && (
-                  <a href={feed.url} target="_blank">
+                  <a href={feed.url} target="_blank" rel="noopener noreferrer">
                     <span className="sitestr">({getUrl(feed.url)})</span>
                   </a>
                 )}
