@@ -117,12 +117,15 @@ and (max-width : 1450px) {
   img[src='s.gif'][width='760'] { width: 228px; }
   img[src='s.gif'][width='800'] { width: 240px; }
   img[src='s.gif'][width='840'] { width: 252px; }
+  tr:nth-child(even) {background-color: #e7e7e7;}
   .title { font-size: 11pt; line-height: 14pt;  }
   .subtext { font-size: 9pt; }
   .hide{cursor: pointer;}
   .sitestr{font-size: 9pt;}
   .itemlist { padding-right: 5px; }
   .athing {height: 40px;}
+  .navlink{cursor: pointer; color: #ff6600;display: flex; justify-content: flex-end; 
+    padding-bottom: 10px; padding-right: 10px}
   .votearrow { transform: scale(1.3,1.3); margin-right: 6px; }
   .votearrow.rotate180 {
     -webkit-transform: rotate(180deg) scale(1.3,1.3);  /* Chrome and other webkit browsers */
@@ -131,7 +134,7 @@ and (max-width : 1450px) {
     -ms-transform:     rotate(180deg) scale(1.3,1.3);  /* IE9 */
     transform:         rotate(180deg) scale(1.3,1.3);  /* W3C complaint browsers */
   }
-  .votelinks { min-width: 18px; }
+  .votelinks { min-width: 18px; cursor: pointer; }
   .votelinks a { display: block; margin-bottom: 9px; }
   input[type='text'], input[type='number'], textarea { font-size: 16px; width: 90%; }
 }

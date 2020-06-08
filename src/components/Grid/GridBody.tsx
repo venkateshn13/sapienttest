@@ -72,7 +72,7 @@ function GridBody(props: IGridBodyProps) {
               <span className="hnuser">
                 <b>{feed.author}</b>
               </span>{" "}
-              <span className="age">{getDays(feed.created_at)} hours ago</span>{" "}
+              <span className="age">{getDays(feed.created_at)} days ago</span>{" "}
               <span
                 className="hide"
                 onClick={() => hideNewsAction(feed.objectID)}
