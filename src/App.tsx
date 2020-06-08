@@ -4,14 +4,23 @@ import { getNews } from './redux/actions/newsActions';
 import './App.css';
 import GridHeader from './components/Grid/GridHeader';
 import GridBody from './components/Grid/GridBody';
+import SmartChart from './components/SmartChart/SmartChart';
+
 const { connect } = require('react-redux');
+
+interface IAppProps {
+  news?: any;
+  pageNo: number;
+  votesData?: any;
+  getNews: (pageNo: number) => void;
+}
 
 /**
  * App component
  * @param props 
  */
-export function App(props: any) {
-  const { getNews, news, pageNo } = props;
+export function App(props: IAppProps) {
+  const { getNews, news, pageNo, votesData } = props;
   const [feed, setFeed] = useState([]);
   const [page, setPage] = useState(0);
 
@@ -52,6 +61,7 @@ export function App(props: any) {
         {page > 0 && <span onClick={() => prevPage()}>Previous</span>} |
         <span onClick={() => nextPage()}>Next</span>
       </div>
+      <SmartChart data={votesData} />
     </div>
   );
 }
@@ -59,6 +69,7 @@ export function App(props: any) {
 const mapStateToProps = (state: any) => ({
   news: state.newsReducers.news,
   pageNo: state.newsReducers.pageNo,
+  votesData: state.newsReducers.votesData,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
