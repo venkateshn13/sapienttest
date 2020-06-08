@@ -10,7 +10,7 @@ const { connect } = require('react-redux');
  * App component
  * @param props 
  */
-function App(props: any) {
+export function App(props: any) {
   const { getNews, news, pageNo } = props;
   const [feed, setFeed] = useState([]);
   const [page, setPage] = useState(0);
